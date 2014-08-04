@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FFLFilterTableView.h"
 
-@interface FFLSecondViewController : UIViewController
+@interface FFLSecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>{
+    FFLFilterTableView *filterView;
+    UITextField *textField;
+    NSMutableArray *mainFilterData;
+}
+-(void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray;
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName;
 
 @end

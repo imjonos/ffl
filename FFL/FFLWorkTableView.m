@@ -34,6 +34,46 @@
     return self;
 }
 
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:keyName];
+    NSArray *myArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [defaults synchronize];
+    return myArray;
+}
+
+-(BOOL)Contains:(NSString *)StrSearchTerm on:(NSString *)StrText
+{
+    return  [StrText rangeOfString:StrSearchTerm options:NSCaseInsensitiveSearch].location==NSNotFound?FALSE:TRUE;
+}
+
+-(BOOL) filterArray:(NSMutableArray *)valArray
+{
+    NSString *title;
+    NSString *cat;
+    NSString *text;
+
+    title=[valArray objectAtIndex:0];
+    cat=[valArray objectAtIndex:4];
+    text=[valArray objectAtIndex:3];
+
+    NSArray *filterData = [[NSMutableArray alloc] initWithArray:[self readArrayWithCustomObjFromUserDefaults:@"main"]];
+    
+    for(NSString *dataString in filterData){
+        //NSString *sub1 = [title substringFromIndex:NSMaxRange([title rangeOfString:dataString])];
+        //NSString *sub2 = [cat substringFromIndex:NSMaxRange([cat rangeOfString:dataString])];
+        //NSString *sub3 = [text substringFromIndex:NSMaxRange([text rangeOfString:dataString])];
+        if([self Contains:dataString on:title]) return true;
+        if([self Contains:dataString on:cat]) return true;
+        if([self Contains:dataString on:text]) return true;
+        
+        //if([sub1 length]!=0 || [sub2 length]!=0 || [sub3 length]!=0) return true;
+    }
+    
+    return false;
+}
+
 -(void) setDataTable{
     
     
@@ -51,6 +91,8 @@
     
     NSArray *dataTable1 = [[NSArray alloc] initWithArray:[self getData:@"http://www.fl.ru/rss/all.xml"] copyItems:YES];
     NSArray *dataTable2 = [[NSArray alloc] initWithArray:[self getData:@"http://www.weblancer.net/rss/projects.rss"] copyItems:YES];
+   // NSArray *dataTable3 = [[NSArray alloc] initWithArray:[self getData:@"https://www.elance.com/r/rss/jobs/"] copyItems:YES];
+    
     int i=0;
     
     for(NSMutableArray *dataTableItem in dataTable1){
@@ -59,7 +101,8 @@
         if(i>1) {
             NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
             [newDataTableItem addObject:@"free-lance.ru"];
-            [dataTable addObject:newDataTableItem];
+            //NSLog(@"%@",[newDataTableItem objectAtIndex:0]);
+            if([self filterArray:newDataTableItem]==true) [dataTable addObject:newDataTableItem];
         }
         i++;
     }
@@ -70,11 +113,22 @@
             
             NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
             [newDataTableItem addObject:@"weblancer.net"];
-            [dataTable addObject:newDataTableItem];
+            if([self filterArray:newDataTableItem]==true) [dataTable addObject:newDataTableItem];
             
         }
         i++;
     }
+   /*
+    for(NSMutableArray *dataTableItem in dataTable3){
+        if(i>1) {
+            
+            NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
+            [newDataTableItem addObject:@"elance.com"];
+            [dataTable addObject:newDataTableItem];
+            
+        }
+        i++;
+    }*/
     
     
     [dataTable sortUsingComparator:^NSComparisonResult(id a, id b) {
@@ -209,7 +263,7 @@
     NSString *CellIdentifier =[NSString stringWithFormat:@"ListCell_%d",indexPath.row];
     
    // if(indexPath.row==0) return nil;
-    NSLog(@"%d",indexPath.row);
+    //NSLog(@"%d",indexPath.row);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
@@ -264,7 +318,7 @@
         lblTemp3.textColor=[UIColor lightGrayColor];
         
        
-         NSLog(@"%@",cat);
+        // NSLog(@"%@",cat);
       
        
          lblTemp1.text=title;

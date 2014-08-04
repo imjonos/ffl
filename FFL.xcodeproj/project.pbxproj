@@ -43,6 +43,7 @@
 		84EABDE618513FA200D7CADF /* NSString+Trimming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EABDDE18513FA200D7CADF /* NSString+Trimming.m */; };
 		84EABDE718513FA200D7CADF /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EABDE018513FA200D7CADF /* NSString+Utilities.m */; };
 		84EE643B198F76160035AB2C /* FFLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE643A198F76160035AB2C /* FFLWebViewController.m */; };
+		84EE6441198F885F0035AB2C /* FFLFilterTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6440198F885F0035AB2C /* FFLFilterTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		84EABDE018513FA200D7CADF /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		84EE6439198F76160035AB2C /* FFLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFLWebViewController.h; sourceTree = "<group>"; };
 		84EE643A198F76160035AB2C /* FFLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFLWebViewController.m; sourceTree = "<group>"; };
+		84EE643F198F885F0035AB2C /* FFLFilterTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFLFilterTableView.h; sourceTree = "<group>"; };
+		84EE6440198F885F0035AB2C /* FFLFilterTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFLFilterTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				84874FC11850BE3500076AA0 /* FFLDetailController.m */,
 				84EE6439198F76160035AB2C /* FFLWebViewController.h */,
 				84EE643A198F76160035AB2C /* FFLWebViewController.m */,
+				84EE643F198F885F0035AB2C /* FFLFilterTableView.h */,
+				84EE6440198F885F0035AB2C /* FFLFilterTableView.m */,
 			);
 			path = FFL;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				84200E3B184FC0D700ED7F6D /* main.m in Sources */,
 				84200E48184FC0D700ED7F6D /* FFLFirstViewController.m in Sources */,
 				84EABDE218513FA200D7CADF /* NSString+HTML.m in Sources */,
+				84EE6441198F885F0035AB2C /* FFLFilterTableView.m in Sources */,
 				84534E96185645FC00057ABE /* HTMLParser.m in Sources */,
 				84EABDE518513FA200D7CADF /* NSString+Regex.m in Sources */,
 				84EE643B198F76160035AB2C /* FFLWebViewController.m in Sources */,

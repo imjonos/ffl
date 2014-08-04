@@ -23,5 +23,9 @@
 -(void) setDataTable;
 -(void) reloadDataTable;
 -(float) stringHeight:(NSString *) text;
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName;
+-(BOOL) filterArray:(NSMutableArray *)valArray;
+-(BOOL)Contains:(NSString *)StrSearchTerm on:(NSString *)StrText;
+
 @property (nonatomic, weak) id<FFLWorkTableViewDelegate> delegate;
 @end
