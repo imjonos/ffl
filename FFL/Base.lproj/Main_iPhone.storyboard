@@ -105,11 +105,11 @@
             </objects>
             <point key="canvasLocation" x="639" y="-234"/>
         </scene>
-        <!--Navigation Controller - Разделы-->
+        <!--Navigation Controller - Фильтр-->
         <scene sceneID="puY-BZ-cRh">
             <objects>
                 <navigationController definesPresentationContext="YES" id="iij-UR-zmR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Разделы" image="add_list.png" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Фильтр" image="add_list.png" id="Z7h-1E-pvt" userLabel="Tab Bar Item - Фильтр"/>
                     <navigationItem key="navigationItem" id="73t-yR-7YN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z9m-to-bJI">
                         <autoresizingMask key="autoresizingMask"/>

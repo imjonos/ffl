@@ -60,6 +60,10 @@
 
     NSArray *filterData = [[NSMutableArray alloc] initWithArray:[self readArrayWithCustomObjFromUserDefaults:@"main"]];
     
+    if([filterData count] == 1) return true;
+    
+    NSLog(@"CNT %d",[filterData count]);
+    
     for(NSString *dataString in filterData){
         //NSString *sub1 = [title substringFromIndex:NSMaxRange([title rangeOfString:dataString])];
         //NSString *sub2 = [cat substringFromIndex:NSMaxRange([cat rangeOfString:dataString])];
@@ -82,8 +86,8 @@
     //return;
     //[self.workTableView reloadData];
       [self.workTableView beginUpdates];
-      [self.workTableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:NO];
-      [self.workTableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:NO];
+      [self.workTableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:YES];
+      [self.workTableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:YES];
       [self.workTableView endUpdates];
     
     
@@ -265,7 +269,7 @@
    // if(indexPath.row==0) return nil;
     //NSLog(@"%d",indexPath.row);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
         
         NSString *title;
@@ -329,7 +333,7 @@
         //cell.textLabel.text =[listRow objectForKey:@"message"];
         cell.backgroundColor=[UIColor whiteColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+   // }
     return cell;
 }
 

@@ -25,25 +25,7 @@
     [self.view addSubview:filterView];
     self.navigationController.navigationBar.topItem.title=@"Фильтр";
     
-    
-     NSLog(@"%@",mainFilterData);
-   // [filterView reloadData];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
-    
-    
-    
-    textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, headerView.frame.size.width-20.0, headerView.frame.size.height)];
+    textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, self.view.frame.size.width-20.0, 30)];
     textField.placeholder = @"Слово для поиска";
     textField.backgroundColor = [UIColor whiteColor];
     textField.textColor = [UIColor blackColor];
@@ -56,11 +38,31 @@
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     textField.delegate = self;
     
-    [headerView addSubview:textField];
+    [self.view addSubview:textField];
     
-    return headerView;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
+    
+     NSLog(@"%@",mainFilterData);
+   // [filterView reloadData];
+	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
+-(void)dismissKeyboard {
+    [textField resignFirstResponder];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textFieldD{
     NSLog(@"textFieldShouldBeginEditing");
@@ -131,34 +133,24 @@
         //if([mainFilterData count]==1) [mainFilterData removeAllObjects];
         //else
         //[mainFilterData removeObjectAtIndex:indexPath.row];
-        
-        
-      //  [[[mainFilterData objectAtIndex:indexPath.section] objectForKey:@"ROWS"] removeObjectAtIndex:indexPath.row];
-        
-        
+        //[[[mainFilterData objectAtIndex:indexPath.section] objectForKey:@"ROWS"] removeObjectAtIndex:indexPath.row];
         
         [mainFilterData removeObjectAtIndex:indexPath.row];
         [self writeArrayWithCustomObjToUserDefaults:@"main" withArray:mainFilterData];
         
         
-        if (editingStyle == UITableViewCellEditingStyleDelete) {
-            // Delete the row from the data source.
-           if (indexPath.row == 0 && [mainFilterData count] == 0) {
-                NSInteger sectionIndex = [indexPath indexAtPosition:0];
-                [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            }else {
-                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            }
-       } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        //if ([mainFilterData count] == 0) {
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+        //}
         
-
-        
-        [tableView reloadData]; // tell table to refresh now
-        
+        //[tableView reloadData]; // tell table to refresh now
+    
+   
+    
     }
 }
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -168,12 +160,12 @@
     // if(indexPath.row==0) return nil;
     NSLog(@"%d",indexPath.row);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSLog(@"array = %@",mainFilterData);
-    if (cell == nil) {
+   // NSLog(@"array = %@",mainFilterData);
+    //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
         cell.textLabel.text = [mainFilterData objectAtIndex:indexPath.row];
         
-    }
+    //}
     return cell;
 }
 @end
