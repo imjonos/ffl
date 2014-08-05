@@ -28,5 +28,6 @@
 -(BOOL) filterArray:(NSMutableArray *)valArray;
 -(BOOL) Contains:(NSString *)StrSearchTerm on:(NSString *)StrText;
 -(void) addNewValues:(NSString *) fromUrl andTitle:(NSString *) titleString;
+-(void) refreshData;
 @property (nonatomic, weak) id<FFLWorkTableViewDelegate> delegate;
 @end

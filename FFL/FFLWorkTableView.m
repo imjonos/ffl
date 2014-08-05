@@ -23,7 +23,7 @@
         
         
         refreshControl = [[UIRefreshControl alloc] init];
-        [refreshControl addTarget:self action:@selector(reloadDataTable) forControlEvents:UIControlEventValueChanged];
+        [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
         [self.workTableView addSubview:refreshControl];
         
 
@@ -207,20 +207,27 @@
     //[alert dismissWithClickedButtonIndex:0 animated:YES];
 
 }
+
+-(void) refreshData{
+    [self setDataTable];
+    [self reloadDataTable];
+    [refreshControl endRefreshing];
+}
+
 -(void) reloadDataTable{
     [self.workTableView reloadData];
     
-    [refreshControl endRefreshing];
+    
     
         
-        CATransition *animation = [CATransition animation];
+        /*CATransition *animation = [CATransition animation];
         [animation setType:kCATransitionPush];
         [animation setSubtype:kCATransitionFromBottom];
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
         [animation setFillMode:kCAFillModeBoth];
         [animation setDuration:.3];
         [[self layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
-        
+        */
     
 }
 
