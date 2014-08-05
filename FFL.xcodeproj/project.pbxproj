@@ -324,6 +324,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = NOs;
 				TargetAttributes = {
+					84200E2A184FC0D700ED7F6D = {
+						DevelopmentTeam = 7U8ZX4GGB4;
+					};
 					84200E51184FC0D700ED7F6D = {
 						TestTargetID = 84200E2A184FC0D700ED7F6D;
 					};
@@ -532,6 +535,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFL/FFL-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -541,6 +546,7 @@
 				);
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -550,6 +556,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFL/FFL-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -559,6 +567,7 @@
 				);
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				"VALID_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;

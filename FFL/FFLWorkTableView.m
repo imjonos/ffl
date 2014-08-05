@@ -34,11 +34,18 @@
     return self;
 }
 
+
+
 -(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
 {
+    NSArray *myArray;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *data = [defaults objectForKey:keyName];
-    NSArray *myArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if([defaults objectForKey:keyName]){
+        NSData *data = [defaults objectForKey:keyName];
+        myArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    else
+        myArray = [[NSArray alloc] init];
     [defaults synchronize];
     return myArray;
 }
@@ -60,7 +67,7 @@
 
     NSArray *filterData = [[NSMutableArray alloc] initWithArray:[self readArrayWithCustomObjFromUserDefaults:@"main"]];
     
-    if([filterData count] == 1) return true;
+    if([filterData count] == 0) return true;
     
     NSLog(@"CNT %d",[filterData count]);
     

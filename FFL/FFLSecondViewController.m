@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    filterView = [[FFLFilterTableView alloc] initWithFrame:CGRectMake(0,75, self.view.frame.size.width, self.view.frame.size.height-123)];
+    filterView = [[FFLFilterTableView alloc] initWithFrame:CGRectMake(0,115, self.view.frame.size.width, self.view.frame.size.height-123)];
     filterView.dataSource = self;
     filterView.delegate = self;
     mainFilterData = [[NSMutableArray alloc] initWithArray:[self readArrayWithCustomObjFromUserDefaults:@"main"]];
