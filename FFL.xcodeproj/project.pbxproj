@@ -36,6 +36,11 @@
 		848355031852936800F2A976 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 848355011852936800F2A976 /* refresh.png */; };
 		848355041852936800F2A976 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 848355021852936800F2A976 /* refresh@2x.png */; };
 		84874FC21850BE3500076AA0 /* FFLDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84874FC11850BE3500076AA0 /* FFLDetailController.m */; };
+		84AA51C8199185C60053350F /* fflimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA51C7199185C60053350F /* fflimg.png */; };
+		84AA51CB199189E50053350F /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA51C9199189E50053350F /* launch@2x.png */; };
+		84AA51CC199189E50053350F /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA51CA199189E50053350F /* launch.png */; };
+		84AA51CF19918E530053350F /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA51CD19918E530053350F /* 80.png */; };
+		84AA51D019918E530053350F /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA51CE19918E530053350F /* 58.png */; };
 		84EABDE118513FA200D7CADF /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EABDD418513FA200D7CADF /* GTMNSString+HTML.m */; };
 		84EABDE218513FA200D7CADF /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EABDD618513FA200D7CADF /* NSString+HTML.m */; };
 		84EABDE418513FA200D7CADF /* NSString+QuickHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EABDDA18513FA200D7CADF /* NSString+QuickHTML.m */; };
@@ -97,6 +102,11 @@
 		848355021852936800F2A976 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		84874FC01850BE3500076AA0 /* FFLDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFLDetailController.h; sourceTree = "<group>"; };
 		84874FC11850BE3500076AA0 /* FFLDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFLDetailController.m; sourceTree = "<group>"; };
+		84AA51C7199185C60053350F /* fflimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fflimg.png; sourceTree = "<group>"; };
+		84AA51C9199189E50053350F /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
+		84AA51CA199189E50053350F /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		84AA51CD19918E530053350F /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
+		84AA51CE19918E530053350F /* 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58.png; sourceTree = "<group>"; };
 		84EABDD218513FA200D7CADF /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		84EABDD318513FA200D7CADF /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		84EABDD418513FA200D7CADF /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
@@ -245,6 +255,11 @@
 		848355001852936800F2A976 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				84AA51CD19918E530053350F /* 80.png */,
+				84AA51CE19918E530053350F /* 58.png */,
+				84AA51C9199189E50053350F /* launch@2x.png */,
+				84AA51CA199189E50053350F /* launch.png */,
+				84AA51C7199185C60053350F /* fflimg.png */,
 				841DB539185A67A500B03AB9 /* add_list.png */,
 				841DB53A185A67A500B03AB9 /* add_list@2x.png */,
 				841DB535185A676500B03AB9 /* search@2x.png */,
@@ -356,12 +371,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AA51CF19918E530053350F /* 80.png in Resources */,
+				84AA51CC199189E50053350F /* launch.png in Resources */,
 				841DB537185A676500B03AB9 /* search@2x.png in Resources */,
+				84AA51CB199189E50053350F /* launch@2x.png in Resources */,
 				841DB53B185A67A500B03AB9 /* add_list.png in Resources */,
 				841DB538185A676500B03AB9 /* search.png in Resources */,
+				84AA51D019918E530053350F /* 58.png in Resources */,
 				84200E45184FC0D700ED7F6D /* Main_iPad.storyboard in Resources */,
 				84200E4D184FC0D700ED7F6D /* Images.xcassets in Resources */,
 				84200E42184FC0D700ED7F6D /* Main_iPhone.storyboard in Resources */,
+				84AA51C8199185C60053350F /* fflimg.png in Resources */,
 				841DB53C185A67A500B03AB9 /* add_list@2x.png in Resources */,
 				84200E39184FC0D700ED7F6D /* InfoPlist.strings in Resources */,
 				841DB534185A399000B03AB9 /* moderator-48.png in Resources */,
@@ -547,6 +567,7 @@
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -568,6 +589,7 @@
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				"VALID_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;

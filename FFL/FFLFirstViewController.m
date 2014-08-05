@@ -26,7 +26,7 @@
     
     [self.view addSubview:worksTableView];
     self.navigationController.navigationBar.topItem.title=@"Проекты";
-    self.navigationItem.rightBarButtonItem = [self refreshBarButtonItem];
+    //self.navigationItem.rightBarButtonItem = [self refreshBarButtonItem];
     
     [self refreshBarButtonPressed:self];
     

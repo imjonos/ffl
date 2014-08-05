@@ -22,6 +22,12 @@
          dataTable=[[NSMutableArray alloc] init];
         
         
+        refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(reloadDataTable) forControlEvents:UIControlEventValueChanged];
+        [self.workTableView addSubview:refreshControl];
+        
+
+        
    //     NSLog(@"%@",dataTable);
         
         
@@ -85,6 +91,25 @@
     return false;
 }
 
+-(void) addNewValues:(NSString *) fromUrl andTitle:(NSString *) titleString{
+    NSArray *dataTable1 = [[NSArray alloc] initWithArray:[self getData:fromUrl] copyItems:YES];
+    
+    int i=0;
+    
+    for(NSMutableArray *dataTableItem in dataTable1){
+        
+        
+        if(i>1) {
+            NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
+            [newDataTableItem addObject:titleString];
+            //NSLog(@"%@",[newDataTableItem objectAtIndex:0]);
+            if([self filterArray:newDataTableItem]==true) [dataTable addObject:newDataTableItem];
+        }
+        i++;
+    }
+
+}
+
 -(void) setDataTable{
     
     
@@ -99,8 +124,12 @@
     
     
     
+    [self addNewValues:@"http://www.fl.ru/rss/all.xml" andTitle:@"fl.ru"];
+    [self addNewValues:@"http://www.weblancer.net/rss/projects.rss" andTitle:@"weblancer.net"];
+    [self addNewValues:@"https://freelance.ru/rss/projects.xml" andTitle:@"freelance.ru"];
+    //[self addNewValues:@"https://www.elance.com/r/rss/jobs/q-" andTitle:@"elance.com"];
     
-    NSArray *dataTable1 = [[NSArray alloc] initWithArray:[self getData:@"http://www.fl.ru/rss/all.xml"] copyItems:YES];
+  /*  NSArray *dataTable1 = [[NSArray alloc] initWithArray:[self getData:@"http://www.fl.ru/rss/all.xml"] copyItems:YES];
     NSArray *dataTable2 = [[NSArray alloc] initWithArray:[self getData:@"http://www.weblancer.net/rss/projects.rss"] copyItems:YES];
    // NSArray *dataTable3 = [[NSArray alloc] initWithArray:[self getData:@"https://www.elance.com/r/rss/jobs/"] copyItems:YES];
     
@@ -128,7 +157,7 @@
             
         }
         i++;
-    }
+    }*/
    /*
     for(NSMutableArray *dataTableItem in dataTable3){
         if(i>1) {
@@ -181,7 +210,7 @@
 -(void) reloadDataTable{
     [self.workTableView reloadData];
     
-    
+    [refreshControl endRefreshing];
     
         
         CATransition *animation = [CATransition animation];

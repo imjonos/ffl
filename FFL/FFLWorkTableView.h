@@ -16,6 +16,7 @@
 @interface FFLWorkTableView : UIView<UITableViewDelegate,UITableViewDataSource>{
     
     NSMutableArray *dataTable;
+    UIRefreshControl *refreshControl;
 }
 @property (nonatomic, strong) UITableView *workTableView;
 
@@ -25,7 +26,7 @@
 -(float) stringHeight:(NSString *) text;
 -(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName;
 -(BOOL) filterArray:(NSMutableArray *)valArray;
--(BOOL)Contains:(NSString *)StrSearchTerm on:(NSString *)StrText;
-
+-(BOOL) Contains:(NSString *)StrSearchTerm on:(NSString *)StrText;
+-(void) addNewValues:(NSString *) fromUrl andTitle:(NSString *) titleString;
 @property (nonatomic, weak) id<FFLWorkTableViewDelegate> delegate;
 @end
