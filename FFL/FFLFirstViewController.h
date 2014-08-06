@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "FFLWorkTableView.h"
+#import <iAd/iAd.h>
 
-@interface FFLFirstViewController : UIViewController<FFLWorkTableViewDelegate>{
+@interface FFLFirstViewController : UIViewController<FFLWorkTableViewDelegate, ADBannerViewDelegate>{
 
     FFLWorkTableView *worksTableView;
+    ADBannerView *adView;
 }
 - (UIBarButtonItem *) refreshBarButtonItem;
 - (void) refreshBarButtonPressed :(id)sender;
-
 @end

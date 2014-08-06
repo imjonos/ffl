@@ -155,10 +155,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier =[NSString stringWithFormat:@"ListCell_%d",indexPath.row];
+    NSString *CellIdentifier =[NSString stringWithFormat:@"ListCell_%ld",(long)indexPath.row];
     
     // if(indexPath.row==0) return nil;
-    NSLog(@"%d",indexPath.row);
+    NSLog(@"%ld",(long)indexPath.row);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    // NSLog(@"array = %@",mainFilterData);
     //if (cell == nil) {

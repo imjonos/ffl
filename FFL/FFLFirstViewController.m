@@ -14,6 +14,7 @@
 
 @implementation FFLFirstViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,10 +31,30 @@
     
     [self refreshBarButtonPressed:self];
     
+    adView = [[ADBannerView alloc] init];
+    adView.delegate = self;
+    self.canDisplayBannerAds = YES;
+    
     
   //[self presentViewController:[[UINavigationController alloc] initWithRootViewController:self] animated:YES completion:nil];
    // [self presentedViewController:[[UINavigationController alloc] initWithRootViewController:self] animated:YES completion:nil] ;
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+-(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"iAdBanner failed %@",error);
+    
+    
+}
+-(void) bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    
+    NSLog(@"iAdBanner loaded");
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

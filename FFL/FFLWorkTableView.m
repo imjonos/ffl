@@ -75,7 +75,7 @@
     
     if([filterData count] == 0) return true;
     
-    NSLog(@"CNT %d",[filterData count]);
+    NSLog(@"CNT %lu",(unsigned long)[filterData count]);
     
     for(NSString *dataString in filterData){
         //NSString *sub1 = [title substringFromIndex:NSMaxRange([title rangeOfString:dataString])];
@@ -307,7 +307,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier =[NSString stringWithFormat:@"ListCell_%d",indexPath.row];
+    NSString *CellIdentifier =[NSString stringWithFormat:@"ListCell_%ld",(long)indexPath.row];
     
    // if(indexPath.row==0) return nil;
     //NSLog(@"%d",indexPath.row);
@@ -381,7 +381,7 @@
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%d",indexPath.row);
+    NSLog(@"%ld",(long)indexPath.row);
     NSArray *item=[dataTable objectAtIndex:indexPath.row];
     [self.delegate detalShow:item];
 }
