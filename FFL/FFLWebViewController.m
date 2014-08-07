@@ -43,8 +43,25 @@
         [self.view  addSubview:webView];
         [self loadUrl:self.url];
     
-    
+        adView = [[ADBannerView alloc] init];
+        adView.delegate = self;
+        self.canDisplayBannerAds = YES;
     // Do any additional setup after loading the view.
+}
+
+-(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"iAdBanner failed %@",error);
+    
+    
+}
+-(void) bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    
+    NSLog(@"iAdBanner loaded");
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

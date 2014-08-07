@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface FFLWebViewController : UIViewController <UIWebViewDelegate>{
+@interface FFLWebViewController : UIViewController <UIWebViewDelegate, ADBannerViewDelegate>{
     UIWebView *webView;
     UIAlertView *alert;
+    ADBannerView *adView;
 }
 - (void)loadUrl:(NSString *) urlStr;
 @property (nonatomic, retain) NSString* url;

@@ -47,8 +47,27 @@
     [self.view addGestureRecognizer:tap];
     
      NSLog(@"%@",mainFilterData);
+    
+    adView = [[ADBannerView alloc] init];
+    adView.delegate = self;
+    self.canDisplayBannerAds = YES;
    // [filterView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"iAdBanner failed %@",error);
+    
+    
+}
+-(void) bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    
+    NSLog(@"iAdBanner loaded");
+    
+    
+    
 }
 
 
