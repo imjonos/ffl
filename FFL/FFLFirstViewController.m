@@ -27,7 +27,7 @@
     
     [self.view addSubview:worksTableView];
     self.navigationController.navigationBar.topItem.title=@"Проекты";
-    //self.navigationItem.rightBarButtonItem = [self refreshBarButtonItem];
+    self.navigationItem.rightBarButtonItem = [self refreshBarButtonItem];
     
     [self refreshBarButtonPressed:self];
     
@@ -56,6 +56,13 @@
     
     
     
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
+   // [worksTableView setDataTable];
+   // [worksTableView reloadDataTable];
 }
 
 - (void)didReceiveMemoryWarning
