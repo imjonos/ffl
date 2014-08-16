@@ -38,6 +38,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *addAcc = [[UIBarButtonItem alloc]
+                               initWithTitle:@"Отправить"
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(sendByEmail)];
+    
+    /*UIBarButtonItem *delAcc = [[UIBarButtonItem alloc]
+                               initWithTitle:@"Отправить"
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(sendByEmail)];*/
+    
+    NSArray *arrBtns = [[NSArray alloc]initWithObjects:addAcc, nil];
+    self.navigationItem.rightBarButtonItems = arrBtns;
+    
     self.navigationController.navigationBar.topItem.title=[itemData objectAtIndex:0];
    // GsminformServer *server=[[GsminformServer alloc] init];
     CGRect screenBound = [[UIScreen mainScreen] bounds];
@@ -67,6 +83,46 @@
    // NSLog(@"%@",itemData);
 	// Do any additional setup after loading the view.
 }
+
+- (void) sendByEmail{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:[itemData objectAtIndex:0]];
+        [mailViewController setMessageBody:[itemData objectAtIndex:1] isHTML:NO];
+        [self presentViewController:mailViewController animated:YES completion:NULL];
+       
+        
+    }
+    
+    else {
+        
+        NSLog(@"Device is unable to send email in its current state");
+        
+    }
+
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled"); break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved"); break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent"); break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]); break;
+        default:
+            break;
+    }
+    
+    // close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 -(void) openUrlButtonClick:(id) sender{
     FFLWebViewController *webViewController = [[FFLWebViewController alloc] initWithNibName:Nil bundle:Nil];

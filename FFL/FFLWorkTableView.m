@@ -15,16 +15,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-         self.workTableView=[[UITableView alloc] initWithFrame:frame];
-         self.workTableView.dataSource=self;
-         self.workTableView.delegate=self;
-         [self addSubview:self.workTableView];
-         dataTable=[[NSMutableArray alloc] init];
-        
+        self.workTableView=[[UITableView alloc] initWithFrame:frame];
+        self.workTableView.dataSource=self;
+        self.workTableView.delegate=self;
+        [self addSubview:self.workTableView];
+        dataTable=[[NSMutableArray alloc] init];
         
         refreshControl = [[UIRefreshControl alloc] init];
         [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
         [self.workTableView addSubview:refreshControl];
+        
+        
         
 
         
@@ -129,48 +130,6 @@
     [self addNewValues:@"https://freelance.ru/rss/projects.xml" andTitle:@"freelance.ru"];
     //[self addNewValues:@"https://www.elance.com/r/rss/jobs/q-" andTitle:@"elance.com"];
     
-  /*  NSArray *dataTable1 = [[NSArray alloc] initWithArray:[self getData:@"http://www.fl.ru/rss/all.xml"] copyItems:YES];
-    NSArray *dataTable2 = [[NSArray alloc] initWithArray:[self getData:@"http://www.weblancer.net/rss/projects.rss"] copyItems:YES];
-   // NSArray *dataTable3 = [[NSArray alloc] initWithArray:[self getData:@"https://www.elance.com/r/rss/jobs/"] copyItems:YES];
-    
-    int i=0;
-    
-    for(NSMutableArray *dataTableItem in dataTable1){
-        
-        
-        if(i>1) {
-            NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
-            [newDataTableItem addObject:@"free-lance.ru"];
-            //NSLog(@"%@",[newDataTableItem objectAtIndex:0]);
-            if([self filterArray:newDataTableItem]==true) [dataTable addObject:newDataTableItem];
-        }
-        i++;
-    }
-    
-    i=0;
-    for(NSMutableArray *dataTableItem in dataTable2){
-        if(i>1) {
-            
-            NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
-            [newDataTableItem addObject:@"weblancer.net"];
-            if([self filterArray:newDataTableItem]==true) [dataTable addObject:newDataTableItem];
-            
-        }
-        i++;
-    }*/
-   /*
-    for(NSMutableArray *dataTableItem in dataTable3){
-        if(i>1) {
-            
-            NSMutableArray *newDataTableItem = [[NSMutableArray alloc] initWithArray:dataTableItem copyItems:YES];
-            [newDataTableItem addObject:@"elance.com"];
-            [dataTable addObject:newDataTableItem];
-            
-        }
-        i++;
-    }*/
-    
-    
     [dataTable sortUsingComparator:^NSComparisonResult(id a, id b) {
         NSString *dateStr1 = [a objectAtIndex:2];
         NSString *dateStr2 = [b objectAtIndex:2];
@@ -209,8 +168,10 @@
 }
 
 -(void) refreshData{
+    [refreshControl beginRefreshing];
     [self setDataTable];
     [self reloadDataTable];
+    
     [refreshControl endRefreshing];
 }
 
@@ -261,7 +222,7 @@
         // если была - выводим ошибку
         NSLog(@"Error: %@", delegate.error);
     }
-
+    
     return nil;
 
 }

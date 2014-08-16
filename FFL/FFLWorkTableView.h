@@ -17,6 +17,7 @@
     
     NSMutableArray *dataTable;
     UIRefreshControl *refreshControl;
+  
 }
 @property (nonatomic, strong) UITableView *workTableView;
 

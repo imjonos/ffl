@@ -33,6 +33,7 @@
 		84534E95185645FC00057ABE /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84534E91185645FC00057ABE /* HTMLNode.m */; };
 		84534E96185645FC00057ABE /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84534E93185645FC00057ABE /* HTMLParser.m */; };
 		84534E991856467100057ABE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84534E981856467100057ABE /* libxml2.dylib */; };
+		847FE7B4199F6F7C0031C231 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FE7B3199F6F7C0031C231 /* 29.png */; };
 		848355031852936800F2A976 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 848355011852936800F2A976 /* refresh.png */; };
 		848355041852936800F2A976 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 848355021852936800F2A976 /* refresh@2x.png */; };
 		84874FC21850BE3500076AA0 /* FFLDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84874FC11850BE3500076AA0 /* FFLDetailController.m */; };
@@ -98,6 +99,7 @@
 		84534E92185645FC00057ABE /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		84534E93185645FC00057ABE /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		84534E981856467100057ABE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		847FE7B3199F6F7C0031C231 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
 		848355011852936800F2A976 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		848355021852936800F2A976 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		84874FC01850BE3500076AA0 /* FFLDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFLDetailController.h; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		848355001852936800F2A976 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				847FE7B3199F6F7C0031C231 /* 29.png */,
 				84AA51CD19918E530053350F /* 80.png */,
 				84AA51CE19918E530053350F /* 58.png */,
 				84AA51C9199189E50053350F /* launch@2x.png */,
@@ -340,7 +343,7 @@
 				ORGANIZATIONNAME = NOs;
 				TargetAttributes = {
 					84200E2A184FC0D700ED7F6D = {
-						DevelopmentTeam = 7U8ZX4GGB4;
+						DevelopmentTeam = TFWATBRTCA;
 					};
 					84200E51184FC0D700ED7F6D = {
 						TestTargetID = 84200E2A184FC0D700ED7F6D;
@@ -374,6 +377,7 @@
 				84AA51CF19918E530053350F /* 80.png in Resources */,
 				84AA51CC199189E50053350F /* launch.png in Resources */,
 				841DB537185A676500B03AB9 /* search@2x.png in Resources */,
+				847FE7B4199F6F7C0031C231 /* 29.png in Resources */,
 				84AA51CB199189E50053350F /* launch@2x.png in Resources */,
 				841DB53B185A67A500B03AB9 /* add_list.png in Resources */,
 				841DB538185A676500B03AB9 /* search.png in Resources */,
@@ -495,7 +499,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Evgeny Nosenko (9E693R925W)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -534,7 +538,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Evgeny Nosenko (TFWATBRTCA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Evgeny Nosenko (TFWATBRTCA)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

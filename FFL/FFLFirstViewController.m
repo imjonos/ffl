@@ -35,7 +35,8 @@
     adView.delegate = self;
     self.canDisplayBannerAds = YES;
     
-    
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"29.png"]]];
+    self.navigationItem.leftBarButtonItem = item;
   //[self presentViewController:[[UINavigationController alloc] initWithRootViewController:self] animated:YES completion:nil];
    // [self presentedViewController:[[UINavigationController alloc] initWithRootViewController:self] animated:YES completion:nil] ;
 	// Do any additional setup after loading the view, typically from a nib.
@@ -81,18 +82,12 @@
 }
 
 - (void) refreshBarButtonPressed :(id)sender {
-    NSLog(@"Click refresh");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Загрузка..." message: nil delegate:self cancelButtonTitle: nil otherButtonTitles: nil];
-    UIActivityIndicatorView *progress= [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(125, 50, 30, 30)];
-    progress.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    [alert addSubview: progress];
-    [progress startAnimating];
-    [alert show];
+   
     //sleep(3);
     
     [worksTableView setDataTable];
     [worksTableView reloadDataTable];
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+   
     
     
  }

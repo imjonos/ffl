@@ -70,6 +70,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UxN-W7-xm8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30088283519999998" green="0.60968011070000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -88,6 +92,10 @@
                     <navigationItem key="navigationItem" id="73t-yR-7YN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z9m-to-bJI">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30088283519999998" green="0.60968011070000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="rootViewController" id="1MA-rm-iCa"/>
@@ -102,6 +110,7 @@
         <image name="add_list.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
     </resources>
+    <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "FFLWebViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface FFLDetailController : UIViewController{
+@interface FFLDetailController : UIViewController<MFMailComposeViewControllerDelegate>{
     NSArray *itemData;
 
 }

@@ -11,7 +11,7 @@
 
 @interface FFLWebViewController : UIViewController <UIWebViewDelegate, ADBannerViewDelegate>{
     UIWebView *webView;
-    UIAlertView *alert;
+    UIView *loadingView;
     ADBannerView *adView;
 }
 - (void)loadUrl:(NSString *) urlStr;
