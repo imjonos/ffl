@@ -25,11 +25,11 @@
     [self.view addSubview:filterView];
     self.navigationController.navigationBar.topItem.title=@"Фильтр";
     
-    textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, self.view.frame.size.width-20.0, 30)];
+    textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, self.view.frame.size.width-20.0, 35)];
     textField.placeholder = @"Слово для поиска";
     textField.backgroundColor = [UIColor whiteColor];
     textField.textColor = [UIColor blackColor];
-    textField.font = [UIFont systemFontOfSize:14.0f];
+    textField.font = [UIFont systemFontOfSize:15.0f];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.returnKeyType = UIReturnKeyDone;
@@ -51,8 +51,23 @@
     adView = [[ADBannerView alloc] init];
     adView.delegate = self;
     self.canDisplayBannerAds = YES;
+    
+    
+    
    // [filterView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (void) saveFilter{
+    if([[textField text] length]!=0){
+        [mainFilterData addObject:[textField text]];
+        [self writeArrayWithCustomObjToUserDefaults:@"main" withArray:mainFilterData];
+        NSLog(@"%@",mainFilterData);
+        [textField setText:@""];
+    }
+    [self dismissKeyboard];
+    
 }
 
 -(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
@@ -73,6 +88,7 @@
 
 -(void)dismissKeyboard {
     [textField resignFirstResponder];
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +102,15 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textFieldD{
     NSLog(@"textFieldShouldBeginEditing");
     textFieldD.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    
+    UIBarButtonItem *addAcc = [[UIBarButtonItem alloc]
+                               initWithTitle:@"Готово"
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(saveFilter)];
+    
+    self.navigationItem.rightBarButtonItem = addAcc;
+    
     return YES;
 }
 
@@ -103,12 +128,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textFieldD{
     NSLog(@"textFieldShouldReturn:");
     
-    [mainFilterData addObject:[textField text]];
-    [self writeArrayWithCustomObjToUserDefaults:@"main" withArray:mainFilterData];
-    NSLog(@"%@",mainFilterData);
-    [textField setText:@""];
-    [textField resignFirstResponder];
-    
+    [self saveFilter];
     
     return YES;
 }

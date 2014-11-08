@@ -34,6 +34,21 @@
     return self;
 }
 
+-(float) stringHeight:(NSString *) text{
+    CGFloat width =290;
+    UIFont *font =[UIFont boldSystemFontOfSize:16];
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc]
+     initWithString:text
+     attributes:@
+     {
+     NSFontAttributeName: font
+     }];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    return rect.size.height;
+}
 
 - (void)viewDidLoad
 {
@@ -59,25 +74,46 @@
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
     CGFloat screenWidth = screenSize.width;
-    CGFloat screenHeight = screenSize.height;
     // Initialization code
     self.view.backgroundColor=[UIColor whiteColor];
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myButton.frame = CGRectMake(screenWidth/2-100, screenHeight/2+screenHeight/5+50, 200, screenHeight/10); // position in the parent view and set the size of the button
-    UITextView *text=[[UITextView alloc] initWithFrame:CGRectMake(0, screenHeight/8.8, screenWidth, screenHeight-screenHeight/3.3)];
+    
+    NSString *title = [itemData objectAtIndex:0];
+    float height = [self stringHeight:title];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, 290, height)];
+    
+    titleLabel.text = title;
+    titleLabel.font=[UIFont boldSystemFontOfSize:16];
+    titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    titleLabel.numberOfLines = 0;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    //NSLog(@"%@",itemData);
+    
+    UITextView *text=[[UITextView alloc] initWithFrame:CGRectMake(0, 70 + height, screenWidth, self.view.frame.size.height-180-height )];
     [text setEditable:NO];
     [text setFont:[UIFont systemFontOfSize:16]];
-    text.textAlignment = NSTextAlignmentJustified;
+    //text.textAlignment = NSTextAlignmentJustified;
     
-        [myButton setTitle:@"На сайте" forState:UIControlStateNormal];
-        [myButton addTarget:self action:@selector(openUrlButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2-100, self.view.frame.size.height-95, 200, 35)];
+    [myButton setTitleColor:[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0] forState: UIControlStateNormal];
+    
+    //[myButton setBackgroundColor:[UIColor blueColor]];
+    [myButton setBackgroundColor:[UIColor colorWithRed:92.0/255.0 green:172.0/255.0 blue:248.0/255.0 alpha:1.0]];
+    [myButton setTitle:@"На сайте" forState:UIControlStateNormal];
+    [myButton addTarget:self action:@selector(openUrlButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    myButton.layer.cornerRadius = 5; // this value vary as per your desire
+    myButton.clipsToBounds = YES;
+    [[myButton layer] setBorderWidth:1.0f];
+    [[myButton layer] setBorderColor:[UIColor colorWithRed:92.0/255.0 green:172.0/255.0 blue:248.0/255.0 alpha:0.5].CGColor];
         //text.text=[NSString stringWithFormat:@"%@",[itemData objectAtIndex:3]];
-        NSString *strText= [NSString stringWithFormat:@"%@",[itemData objectAtIndex:3]];
+    
+    NSString *strText= [NSString stringWithFormat:@"%@",[itemData objectAtIndex:3]];
     NSString *strTextNew=[[[strText stringByStrippingTags] stringByRemovingNewLinesAndWhitespace] stringByDecodingHTMLEntities];
     text.text=strTextNew;
     
     [self.view addSubview:myButton];
     [self.view addSubview:text];
+    [self.view addSubview:titleLabel];
     
     
    // NSLog(@"%@",itemData);

@@ -57,7 +57,7 @@
     [loadingView addSubview:activityView];
     
     UILabel* lblLoading = [[UILabel alloc]initWithFrame:CGRectMake(0, 48, 80, 30)];
-    lblLoading.text = @"Загрузка...";
+    lblLoading.text = @"Загрузка";
     lblLoading.textColor = [UIColor whiteColor];
     lblLoading.font = [UIFont fontWithName:lblLoading.font.fontName size:15];
     lblLoading.textAlignment = NSTextAlignmentCenter;

@@ -187,6 +187,7 @@
 		84200E34184FC0D700ED7F6D /* FFL */ = {
 			isa = PBXGroup;
 			children = (
+				84862CA019B392EF00CDDD68 /* iPad */,
 				84534E8F185645FC00057ABE /* parser */,
 				848355001852936800F2A976 /* Resourse */,
 				84EABDD118513FA200D7CADF /* NSString */,
@@ -272,6 +273,13 @@
 				848355021852936800F2A976 /* refresh@2x.png */,
 			);
 			path = Resourse;
+			sourceTree = "<group>";
+		};
+		84862CA019B392EF00CDDD68 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		84EABDD118513FA200D7CADF /* NSString */ = {
@@ -570,6 +578,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -592,6 +601,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "FFL/FFL-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

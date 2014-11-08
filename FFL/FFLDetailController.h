@@ -10,6 +10,7 @@
 #import "FFLWebViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface FFLDetailController : UIViewController<MFMailComposeViewControllerDelegate>{
     NSArray *itemData;
